@@ -1,0 +1,25 @@
+# Netlify Configuration for HM Sweets Web App
+
+[build]
+  publish = "."
+
+# Production Security & Performance Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(self), camera=(), microphone=()"
+
+# Ensure index.html is revalidated so updates go live immediately
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Single-Page App fallback routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

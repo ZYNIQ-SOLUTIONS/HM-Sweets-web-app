@@ -1,0 +1,14 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+*.tmp
+
+# Media recordings & raw exports
+*.mp4
+*.webm
+
+# Node / Editors / Logs
+node_modules/
+*.log
+.vscode/
+.idea/
